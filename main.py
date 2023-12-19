@@ -37,3 +37,12 @@ cabecerainventario = {"content.type":"application/json","X-Auth-Token":API_Token
 respuesta_del_inventario = requests.get(urlinventario, headers=cabecerainventario)
 respuesta_del_inventario_json = respuesta_del_inventario.json()
 print(respuesta_del_inventario_json)
+
+#hostname = respuesta_del_inventario_json["response"][0]["hostname"]
+#serialnumber = respuesta_del_inventario_json["response"][0]["serialNumber"]
+#mac =respuesta_del_inventario_json["response"][0]["macAddress"]
+for i in range(0,9):
+    hostname = respuesta_del_inventario_json["response"][i]["hostname"]
+    serialnumber = respuesta_del_inventario_json["response"][i]["serialNumber"]
+    mac = respuesta_del_inventario_json["response"][i]["macAddress"]
+    print("Nombre del Equipo: "+hostname+"   "+"Serial de la maquina: "+serialnumber+"   "+"Mac: "+mac)
